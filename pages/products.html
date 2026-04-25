@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品列表</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="product-list-page">
+  <!-- 左上角返回按钮：从产品列表页返回首页 -->
+  <a class="back-button list-back" href="../index.html">返回</a>
+
+  <!-- 产品列表页顶部横幅：复用首页背景图，尺寸和裁切按列表页重新调整 -->
+  <header class="product-list-hero">
+    <div class="product-hero-overlay"></div>
+    <div class="product-hero-brand">
+      <div class="product-brand-main">
+        <span>CSOP</span>
+        <small>Asset Management</small>
+      </div>
+      <i></i>
+      <strong>南方东英<br>资产管理</strong>
+    </div>
+  </header>
+
+  <main class="product-selector">
+    <!-- 页面标题和说明 -->
+    <section class="product-selector-title">
+      <h1>产品列表</h1>
+      <p>请选择您感兴趣的产品（可多选）</p>
+    </section>
+
+    <!-- ETF 产品分组 -->
+    <section class="product-group" data-product-group>
+      <div class="product-group-heading">
+        <h2>ETF</h2>
+        <label class="select-all">
+          <span>全选</span>
+          <input type="checkbox" data-select-all>
+        </label>
+      </div>
+
+      <div class="product-options">
+        <h3 class="product-subgroup">备兑认购期权ETF</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英国指备兑认购期权主动型ETF</span>
+          <strong>2802.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">商品ETF</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英黄金ETF</span>
+          <strong>3030.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">货币市场ETF</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英港元货币市场ETF</span>
+          <strong>3053.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英美元货币市场ETF</span>
+          <strong>9096.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">固定收益ETF</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英富时美国国债20年+指数ETF</span>
+          <strong>3433.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">A股指数ETF</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英中国创业板指数ETF</span>
+          <strong>3147.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">港股指数ETF</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生科技指数ETF</span>
+          <strong>3033.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生生物科技ETF</span>
+          <strong>3174.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英富时东西股票精选ETF</span>
+          <strong>3441.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生港美科技ETF</span>
+          <strong>3442.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英富时香港股票ETF</span>
+          <strong>3443.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英富时香港韩国科技+指数ETF</span>
+          <strong>3431.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英MSCI港股通精选ETF</span>
+          <strong>3432.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生港股通红利ETF</span>
+          <strong>3469.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">区域资产ETF</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英美股七巨头ETF</span>
+          <strong>3454.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英沙特阿拉伯ETF</span>
+          <strong>2830.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英日经225指数ETF</span>
+          <strong>3153.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英纳斯达克100 ETF</span>
+          <strong>3034.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">虚拟资产期货ETF</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英比特币期货ETF</span>
+          <strong>3066.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英以太币期货ETF</span>
+          <strong>3068.HK</strong>
+        </label>
+      </div>
+    </section>
+
+    <!-- 杠杆和反向产品分组 -->
+    <section class="product-group" data-product-group>
+      <div class="product-group-heading">
+        <h2>杠杆及反向产品</h2>
+        <label class="select-all">
+          <span>全选</span>
+          <input type="checkbox" data-select-all>
+        </label>
+      </div>
+
+      <div class="product-options">
+        <h3 class="product-subgroup">A股指数产品</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英沪深300指数每日杠杆(2x)产品</span>
+          <strong>7233.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">日股指数产品</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英日经225每日杠杆(2x)产品</span>
+          <strong>7262.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英日经225每日反向(-2x)产品</span>
+          <strong>7515.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">港股指数产品</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生指数每日杠杆(2x)产品</span>
+          <strong>7200.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生指数每日反向(-1x)产品</span>
+          <strong>7300.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生指数每日反向(-2x)产品</span>
+          <strong>7500.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生科技指数每日杠杆(2x)产品</span>
+          <strong>7226.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英恒生科技指数每日反向(-2x)产品</span>
+          <strong>7552.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">美股指数产品</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英纳斯达克100指数每日杠杆(2x)产品</span>
+          <strong>7266.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英纳斯达克100指数每日反向(-2x)产品</span>
+          <strong>7568.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">商品产品</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英黄金期货每日杠杆(2x)产品</span>
+          <strong>7299.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">虚拟资产期货产品</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英比特币期货每日反向(-1x)产品</span>
+          <strong>7376.HK</strong>
+        </label>
+
+        <h3 class="product-subgroup">个股产品</h3>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英三星电子每日杠杆(2x)产品</span>
+          <strong>7747.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英三星电子每日反向(-2x)产品</span>
+          <strong>7347.HK</strong>
+        </label>
+        <label class="product-option">
+          <input type="checkbox" data-product-checkbox>
+          <span>南方东英海力士每日杠杆(2x)产品</span>
+          <strong>7709.HK</strong>
+        </label>
+      </div>
+    </section>
+  </main>
+
+  <!-- 底部固定操作栏：显示已选数量，并跳转至产品详情页 -->
+  <footer class="product-action-bar">
+    <p>已选择 <strong data-selected-count>0</strong> 只产品</p>
+    <a href="product-detail.html">查看产品 <span>›</span></a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

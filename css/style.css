@@ -1,0 +1,1130 @@
+/* 全局颜色变量：集中管理蓝色主题、文字色、线条色和白色 */
+:root {
+  --blue-900: #01296a;
+  --blue-800: #004694;
+  --blue-700: #005db9;
+  --blue-500: #2f87d6;
+  --blue-300: #9fc8ef;
+  --blue-100: #dcecfb;
+  --text: #18345f;
+  --muted: #5e6d80;
+  --line: #d6e1ef;
+  --white: #ffffff;
+}
+
+/* 全局盒模型：让宽高计算更直观，避免 padding 撑大元素 */
+* {
+  box-sizing: border-box;
+}
+
+/* 页面基础样式：设置最小宽度、字体、背景和默认文字颜色 */
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--text);
+  background: #f7fbff;
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 链接基础样式：去掉默认下划线，继承当前文字颜色 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 首页顶部横幅：使用本地图片作为金融城市背景 */
+.blue-hero {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  color: var(--white);
+  background: url("../images/首页背景.jpg.png") center / cover no-repeat;
+}
+
+/* 横幅叠加层：左侧稍微压暗，保证品牌文字清楚 */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 20, 82, 0.5), rgba(0, 51, 130, 0.18), rgba(0, 75, 166, 0.03));
+}
+
+/* 横幅品牌组合：CSOP 和英文上下排列，中文公司名放在右侧 */
+.brand-lockup {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 104px 5vw 0;
+  text-shadow: 0 4px 18px rgba(0, 20, 65, 0.34);
+}
+
+/* 品牌左侧组合：CSOP 在上，Asset Management 在下 */
+.brand-main {
+  display: grid;
+  gap: 8px;
+}
+
+/* 英文品牌主名称：控制 CSOP 字样大小和字重 */
+.brand-name {
+  font-size: clamp(58px, 7.2vw, 98px);
+  line-height: 0.86;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+/* 英文副标题：放在 CSOP 下方，字号比 CSOP 小 */
+.brand-en {
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.05;
+  font-weight: 500;
+}
+
+/* 中文公司名：在 CSOP 右侧，加粗强调 */
+.brand-cn {
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+/* 品牌分隔线：位于英文品牌组和中文公司名之间 */
+.brand-divider {
+  width: 2px;
+  height: 116px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+/* 首页数据图表区域：白底，承接横幅下方的核心信息 */
+.stats-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-items: center;
+  padding: 38px 7vw 30px;
+  background: var(--white);
+  box-shadow: 0 -10px 30px rgba(0, 49, 115, 0.08);
+}
+
+/* 图表区标题容器：整体居中 */
+.stats-title {
+  text-align: center;
+}
+
+/* 图表区第一行标题：黑色加粗 */
+.stats-title h1 {
+  margin: 0 0 6px;
+  color: #111827;
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+/* 图表区第二行标题：蓝色加粗强调 */
+.stats-title p {
+  margin: 0;
+  color: var(--blue-700);
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.22;
+}
+
+/* 两个饼状图的布局：桌面端左右排列，中间留分隔线 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  gap: 52px;
+  align-items: center;
+}
+
+/* 单个图表模块：标题、饼图、图例纵向居中排列 */
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-width: 0;
+  text-align: center;
+}
+
+/* 第二个图表模块：保留独立类名，方便后续单独微调 */
+.stat-block.compact {
+  gap: 20px;
+}
+
+/* 单个图表标题：说明 ADT 或 AUM 指标 */
+.stat-block h2 {
+  min-height: 58px;
+  margin: 0;
+  color: var(--blue-900);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+/* 图表之间的分隔线：桌面端为竖线，移动端会变横线 */
+.divider {
+  height: 310px;
+  background: var(--line);
+}
+
+/* 环形图基础形状：用 conic-gradient 画占比 */
+.donut {
+  position: relative;
+  flex: 0 0 auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(0, 55, 126, 0.08), 0 8px 28px rgba(0, 69, 150, 0.16);
+}
+
+/* 环形图中间白色圆孔 */
+.donut::after {
+  content: "";
+  position: absolute;
+  inset: 58px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: inset 0 0 18px rgba(0, 49, 115, 0.06);
+}
+
+/* ADT 环形图数据：99.7% 南方东英，0.3% 其他发行商 */
+.donut-adt {
+  background: conic-gradient(var(--blue-700) 0 99.7%, #d9e9f7 99.7% 100%);
+}
+
+/* AUM 环形图数据：99.1% 南方东英，0.9% 其他发行商 */
+.donut-aum {
+  background: conic-gradient(var(--blue-700) 0 99.1%, #d9e9f7 99.1% 100%);
+}
+
+/* 环形图外圈百分比文字基础样式 */
+.donut span,
+.donut small {
+  position: absolute;
+  z-index: 2;
+  color: #123d78;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* 主占比文字：放在蓝色扇区上 */
+.donut span {
+  right: 62px;
+  top: 169px;
+  color: #fff;
+  font-size: 25px;
+}
+
+/* 其他发行商小占比文字：放在浅色扇区附近 */
+.donut small {
+  right: 72px;
+  top: 14px;
+  color: #61738a;
+  font-size: 17px;
+}
+
+/* 环形图中心文案：展示 ADT No.1 / AUM No.1 */
+.donut strong {
+  position: absolute;
+  inset: 58px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  color: var(--blue-900);
+  font-size: 22px;
+  line-height: 1.18;
+  text-align: center;
+}
+
+/* 图例容器：展示不同颜色对应的数据类别 */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 26px;
+  margin: 0;
+  padding: 0;
+  color: #4f5968;
+  font-size: 18px;
+  font-weight: 700;
+  list-style: none;
+}
+
+/* 图例色块基础样式 */
+.legend i {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  vertical-align: -3px;
+}
+
+/* 图例色块颜色：对应图表主色和辅助色 */
+.legend .blue { background: var(--blue-700); }
+.legend .mid { background: #5fa0da; }
+.legend .soft { background: #9ec5e9; }
+.legend .light { background: #d9e9f7; }
+
+/* 图表资料来源：位于两个饼图下方居中 */
+.stats-source {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 17px;
+  text-align: center;
+}
+
+/* 公司历程区域：白底时间轴部分 */
+.timeline-section {
+  padding: 10px 3vw 28px;
+  background: var(--white);
+}
+
+/* 公司历程标题 */
+.timeline-section h2 {
+  margin: 0 0 18px;
+  color: var(--blue-900);
+  font-size: 32px;
+}
+
+/* 时间轴布局：桌面端 6 个年份横向排列 */
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  padding-top: 26px;
+}
+
+/* 时间轴横线 */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 68px;
+  height: 4px;
+  background: var(--blue-700);
+}
+
+/* 时间轴末端箭头 */
+.timeline::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: 57px;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left: 28px solid var(--blue-700);
+}
+
+/* 单个时间节点容器 */
+.timeline article {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* 时间节点年份文字 */
+.timeline strong {
+  display: block;
+  color: var(--blue-900);
+  font-size: 28px;
+  line-height: 1;
+}
+
+/* 时间节点圆点 */
+.timeline span {
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 24px auto 16px;
+  border-radius: 50%;
+  background: var(--blue-700);
+  box-shadow: 0 0 0 5px rgba(0, 93, 185, 0.12);
+}
+
+/* 时间节点说明文字 */
+.timeline p {
+  margin: 0 auto;
+  max-width: 230px;
+  color: #4c5868;
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+/* 备用脚注样式：当前首页未使用，保留给后续说明文字 */
+.footnote {
+  margin: 30px 0 0;
+  color: #9aa4b3;
+  font-size: 15px;
+}
+
+/* 首页底部按钮区域：承载“产品列表”跳转按钮 */
+.home-action {
+  display: flex;
+  justify-content: center;
+  padding: 18px 20px 48px;
+  background: var(--white);
+}
+
+/* 通用按钮样式：产品列表、返回、查看详情共用 */
+.primary-button,
+.back-button,
+.product-card a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 58px;
+  border: 1px solid var(--blue-700);
+  border-radius: 4px;
+  color: var(--white);
+  background: var(--blue-700);
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(0, 93, 185, 0.18);
+}
+
+/* 通用按钮悬停效果 */
+.primary-button:hover,
+.back-button:hover,
+.product-card a:hover {
+  background: var(--blue-900);
+  border-color: var(--blue-900);
+}
+
+/* 产品列表页背景：接近设计图的浅灰白页面底色 */
+.product-list-page {
+  min-height: 100vh;
+  padding-bottom: 118px;
+  color: #1f2b45;
+  background: #f7f9fd;
+}
+
+/* 产品列表页顶部横幅：复用首页背景图，但高度更矮、裁切更偏顶部 */
+.product-list-hero {
+  position: relative;
+  min-height: 230px;
+  overflow: hidden;
+  color: var(--white);
+  background: url("../images/首页背景.jpg.png") center 40% / cover no-repeat;
+}
+
+/* 产品列表页横幅底部白色弧形：模拟参考图中的波浪过渡 */
+.product-list-hero::after {
+  content: "";
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: -86px;
+  height: 150px;
+  border-radius: 50% 50% 0 0;
+  background: #f7f9fd;
+}
+
+/* 产品列表页横幅遮罩：保证左侧品牌信息清晰 */
+.product-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 28, 96, 0.58), rgba(0, 73, 163, 0.25), rgba(0, 86, 178, 0.05));
+}
+
+/* 产品列表页横幅品牌：缩小版品牌组合 */
+.product-hero-brand {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 36px 44px 0 120px;
+  text-shadow: 0 4px 16px rgba(0, 20, 65, 0.35);
+}
+
+/* 产品列表页 CSOP 和 Asset Management 上下排列 */
+.product-brand-main {
+  display: grid;
+  gap: 4px;
+}
+
+/* 产品列表页 CSOP 字样 */
+.product-brand-main span {
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 0.9;
+}
+
+/* 产品列表页 Asset Management 字样 */
+.product-brand-main small {
+  font-size: clamp(12px, 1.3vw, 16px);
+  line-height: 1;
+}
+
+/* 产品列表页品牌分隔线 */
+.product-hero-brand i {
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+/* 产品列表页中文品牌 */
+.product-hero-brand strong {
+  font-size: clamp(16px, 1.7vw, 22px);
+  line-height: 1.12;
+}
+
+/* 产品列表主体：控制内容宽度并压到横幅弧形下方 */
+.product-selector {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 72px));
+  margin: -18px auto 0;
+}
+
+/* 产品列表页标题和副标题 */
+.product-selector-title {
+  margin-bottom: 28px;
+}
+
+.product-selector-title h1 {
+  margin: 0 0 12px;
+  color: #15223b;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.product-selector-title p {
+  margin: 0;
+  color: #98a1b2;
+  font-size: 18px;
+}
+
+/* 产品分组：每个分组包含标题、全选和产品行 */
+.product-group {
+  margin-top: 28px;
+}
+
+/* 产品分组标题栏：左侧分组名，右侧全选 */
+.product-group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dce5f1;
+}
+
+.product-group-heading h2 {
+  position: relative;
+  margin: 0;
+  color: var(--blue-700);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.product-group-heading h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 54px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--blue-700);
+}
+
+/* 分组全选控件 */
+.select-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #576277;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 产品行容器：纵向排列，每行是一个可勾选产品 */
+.product-options {
+  display: grid;
+  gap: 10px;
+}
+
+/* 产品小类标题：用于 ETF、杠杆及反向产品下的细分分类 */
+.product-subgroup {
+  margin: 18px 0 4px;
+  color: var(--blue-900);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.product-subgroup:first-child {
+  margin-top: 0;
+}
+
+/* 单个产品行：左侧复选框，中间产品名，右侧代码 */
+.product-option {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: center;
+  min-height: 66px;
+  padding: 12px 26px;
+  border: 1px solid #dce4ef;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(24, 52, 95, 0.035);
+  cursor: pointer;
+}
+
+.product-option:hover {
+  border-color: #bad0ea;
+  box-shadow: 0 10px 28px rgba(0, 93, 185, 0.08);
+}
+
+/* 产品名称文字 */
+.product-option span {
+  color: #253047;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+/* 产品代码标签 */
+.product-option strong {
+  min-width: 92px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--blue-700);
+  background: #eef5ff;
+  font-size: 17px;
+  text-align: center;
+}
+
+/* 产品列表页复选框：使用系统控件并设置蓝色强调色 */
+.product-option input,
+.select-all input {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  accent-color: var(--blue-700);
+  cursor: pointer;
+}
+
+/* 底部固定操作栏：显示已选数量和查看产品按钮 */
+.product-action-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 520px);
+  gap: 28px;
+  align-items: center;
+  padding: 18px max(38px, calc((100vw - 1180px) / 2)) 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 1px solid #dce4ef;
+  box-shadow: 0 -12px 32px rgba(24, 52, 95, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.product-action-bar p {
+  margin: 0;
+  color: #263248;
+  font-size: 19px;
+}
+
+.product-action-bar strong {
+  color: var(--blue-700);
+  font-size: 28px;
+}
+
+.product-action-bar a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--blue-700);
+  font-size: 22px;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(0, 93, 185, 0.22);
+}
+
+.product-action-bar a:hover {
+  background: var(--blue-900);
+}
+
+.product-action-bar span {
+  margin-left: 28px;
+  font-size: 34px;
+  line-height: 1;
+}
+
+/* 内页背景：产品详情页使用 */
+.inner-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(0, 71, 160, 0.1), transparent 360px),
+    #f4f8fd;
+}
+
+/* 左上角返回按钮：固定在视口左上角 */
+.back-button {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 10;
+  min-height: 40px;
+  padding: 0 18px;
+}
+
+/* 内页主体宽度：限制内容最大宽度并居中 */
+.product-page,
+.detail-page {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 96px 0 70px;
+}
+
+/* 内页顶部横幅：产品列表和产品详情共用蓝色标题区 */
+.inner-hero,
+.detail-banner {
+  padding: 52px 58px;
+  color: var(--white);
+  background:
+    linear-gradient(100deg, rgba(0, 36, 105, 0.96), rgba(0, 102, 191, 0.82)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 80px);
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(0, 54, 128, 0.18);
+}
+
+/* 内页顶部英文小标题 */
+.inner-hero p,
+.detail-banner p {
+  margin: 0 0 8px;
+  color: #b9ddff;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* 内页顶部主标题 */
+.inner-hero h1,
+.detail-banner h1 {
+  margin: 0 0 14px;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.08;
+}
+
+/* 内页顶部说明文字 */
+.inner-hero span,
+.detail-banner span {
+  display: block;
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+/* 产品列表网格：桌面端三列产品卡片 */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+/* 产品卡片：每个产品的外层容器 */
+.product-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 18px 40px rgba(24, 52, 95, 0.08);
+}
+
+/* 产品代码标签：如 ETF、FUND、PORT */
+.product-code {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  margin-bottom: 20px;
+  padding: 0 12px;
+  color: var(--blue-700);
+  background: var(--blue-100);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* 产品卡片标题 */
+.product-card h2 {
+  margin: 0 0 12px;
+  color: var(--blue-900);
+  font-size: 25px;
+}
+
+/* 产品卡片简介：设置最小高度，让卡片更整齐 */
+.product-card p {
+  min-height: 78px;
+  margin: 0 0 22px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* 产品卡片参数列表：产品类型、风险等级等 */
+.product-card dl {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 26px;
+}
+
+/* 单行产品参数：左右对齐标签和值 */
+.product-card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eef3f9;
+}
+
+/* 产品参数名称 */
+.product-card dt {
+  color: #8490a0;
+}
+
+/* 产品参数值 */
+.product-card dd {
+  margin: 0;
+  color: var(--blue-900);
+  font-weight: 700;
+}
+
+/* 产品卡片查看详情按钮：铺满卡片宽度 */
+.product-card a {
+  width: 100%;
+}
+
+/* 产品详情正文容器：多个内容块纵向排列 */
+.detail-content {
+  display: grid;
+  gap: 22px;
+  margin-top: 30px;
+}
+
+/* 产品详情单个内容块 */
+.detail-content article {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 14px 34px rgba(24, 52, 95, 0.07);
+}
+
+/* 产品详情内容块标题 */
+.detail-content h2 {
+  margin: 0 0 12px;
+  color: var(--blue-900);
+  font-size: 26px;
+}
+
+/* 产品详情正文和列表项文字 */
+.detail-content p,
+.detail-content li {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* 产品详情列表缩进 */
+.detail-content ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+/* 平板端响应式：横幅、图表、时间轴和产品列表开始改为更窄布局 */
+@media (max-width: 980px) {
+  /* 品牌横幅允许换行，避免文字挤压 */
+  .brand-lockup {
+    flex-wrap: wrap;
+    padding-top: 92px;
+  }
+
+  /* 品牌分隔线在平板端缩短 */
+  .brand-divider {
+    height: 92px;
+  }
+
+  /* 图表区域保持单列外层布局 */
+  .stats-panel {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  /* 两个图表在平板端上下排列 */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  /* 分隔线在平板端由竖线变横线 */
+  .divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  /* 时间轴平板端变成三列 */
+  .timeline {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 平板端隐藏时间轴横线和箭头，避免跨行错位 */
+  .timeline::before,
+  .timeline::after {
+    display: none;
+  }
+
+  /* 产品列表平板端改为单列 */
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* 产品列表页平板端内容宽度 */
+  .product-selector {
+    width: min(100% - 44px, 1180px);
+  }
+
+  /* 产品列表页平板端底部操作栏 */
+  .product-action-bar {
+    grid-template-columns: 1fr minmax(220px, 360px);
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
+/* 手机端响应式：进一步压缩字号、间距和布局 */
+@media (max-width: 680px) {
+  /* 手机端横幅高度 */
+  .blue-hero {
+    min-height: 330px;
+    background-position: center top;
+  }
+
+  /* 手机端品牌信息改为纵向排列 */
+  .brand-lockup {
+    display: grid;
+    gap: 14px;
+    padding: 58px 24px 0;
+  }
+
+  /* 手机端隐藏品牌分隔线 */
+  .brand-divider {
+    display: none;
+  }
+
+  /* 手机端品牌主名称字号 */
+  .brand-name {
+    font-size: 46px;
+  }
+
+  /* 手机端英文副标题字号 */
+  .brand-en {
+    font-size: 18px;
+  }
+
+  /* 手机端中文公司名字号 */
+  .brand-cn {
+    font-size: 24px;
+  }
+
+  /* 手机端图表区域内边距 */
+  .stats-panel {
+    padding: 34px 20px 24px;
+  }
+
+  /* 手机端单个图表模块居中 */
+  .stat-block {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  /* 手机端环形图尺寸 */
+  .donut {
+    width: 190px;
+    height: 190px;
+    align-self: center;
+  }
+
+  /* 手机端环形图中心圆孔尺寸 */
+  .donut::after {
+    inset: 50px;
+  }
+
+  /* 手机端环形图中心文案尺寸 */
+  .donut strong {
+    inset: 50px;
+    font-size: 20px;
+  }
+
+  /* 手机端主占比文字位置 */
+  .donut span {
+    right: 26px;
+    top: 124px;
+    font-size: 24px;
+  }
+
+  /* 手机端小占比文字位置 */
+  .donut small {
+    right: 58px;
+  }
+
+  /* 手机端时间轴区域间距 */
+  .timeline-section {
+    padding: 18px 20px 24px;
+  }
+
+  /* 手机端时间轴改为单列 */
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-top: 8px;
+  }
+
+  /* 手机端单个时间节点左对齐 */
+  .timeline article {
+    text-align: left;
+    padding-left: 42px;
+  }
+
+  /* 手机端时间节点圆点固定在左侧 */
+  .timeline span {
+    position: absolute;
+    left: 0;
+    top: 29px;
+    margin: 0;
+  }
+
+  /* 手机端时间节点文案左对齐 */
+  .timeline p {
+    margin-left: 0;
+  }
+
+  /* 手机端首页按钮区域底部间距 */
+  .home-action {
+    padding-bottom: 36px;
+  }
+
+  /* 手机端主按钮占满宽度 */
+  .primary-button {
+    width: 100%;
+  }
+
+  /* 手机端返回按钮位置 */
+  .back-button {
+    top: 14px;
+    left: 14px;
+  }
+
+  /* 手机端产品列表页横幅 */
+  .product-list-hero {
+    min-height: 180px;
+    background-position: center top;
+  }
+
+  /* 手机端产品列表页品牌 */
+  .product-hero-brand {
+    gap: 12px;
+    padding: 52px 22px 0 104px;
+  }
+
+  .product-brand-main span {
+    font-size: 34px;
+  }
+
+  .product-brand-main small {
+    font-size: 12px;
+  }
+
+  .product-hero-brand i {
+    height: 42px;
+  }
+
+  .product-hero-brand strong {
+    font-size: 16px;
+  }
+
+  /* 手机端产品列表主体 */
+  .product-selector {
+    width: min(100% - 28px, 1180px);
+    margin-top: -8px;
+  }
+
+  .product-selector-title h1 {
+    font-size: 36px;
+  }
+
+  .product-selector-title p {
+    font-size: 15px;
+  }
+
+  .product-group-heading h2 {
+    font-size: 24px;
+  }
+
+  /* 手机端产品行：代码移到下一行，避免长名称拥挤 */
+  .product-option {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 14px;
+    padding: 14px 16px;
+  }
+
+  .product-option span {
+    font-size: 16px;
+  }
+
+  .product-option strong {
+    grid-column: 2;
+    width: fit-content;
+    min-width: 84px;
+    font-size: 15px;
+  }
+
+  .product-option input,
+  .select-all input {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* 手机端底部操作栏：已选数量和按钮上下排列 */
+  .product-action-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .product-action-bar a {
+    min-height: 52px;
+    font-size: 20px;
+  }
+
+  /* 手机端内页主体宽度和顶部间距 */
+  .product-page,
+  .detail-page {
+    width: min(100% - 28px, 1160px);
+    padding-top: 74px;
+  }
+
+  /* 手机端内页顶部横幅内边距 */
+  .inner-hero,
+  .detail-banner {
+    padding: 34px 24px;
+  }
+
+  /* 手机端产品卡片内边距 */
+  .product-card {
+    padding: 24px;
+  }
+}

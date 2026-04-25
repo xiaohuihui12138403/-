@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公司简介</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="profile-page">
+  <main>
+    <!-- 首页顶部横幅：使用本地图片作为背景，叠加品牌名称 -->
+    <section class="blue-hero">
+      <!-- 深蓝遮罩层：让白色品牌文字在图片上更清晰 -->
+      <div class="hero-overlay"></div>
+
+      <!-- 品牌信息区域：后续可以把 CSOP 和南方东英替换为你的公司名称 -->
+      <div class="brand-lockup">
+        <div class="brand-main">
+          <div class="brand-name">CSOP</div>
+          <div class="brand-en">Asset Management</div>
+        </div>
+        <div class="brand-divider"></div>
+        <div class="brand-cn">南方东英<br>资产管理</div>
+      </div>
+    </section>
+
+    <!-- 市场占有率数据区：放置页面主标题、两个饼状图和资料来源 -->
+    <section class="stats-panel">
+      <!-- 数据区主标题：第一行黑色，第二行蓝色强调 -->
+      <div class="stats-title">
+        <h1>在香港杠杆及反向产品市场上（2026Q1）</h1>
+        <p>南方东英市占率独占鳌头</p>
+      </div>
+
+      <!-- 两个饼状图的横向布局容器 -->
+      <div class="stats-grid">
+        <!-- 饼状图一：按日均成交额 ADT 展示南方东英市占率 -->
+        <div class="stat-block">
+          <h2>按日均成交额（ADT）</h2>
+          <div class="donut donut-adt" role="img" aria-label="按日均成交额，南方东英占比99.7%，其他发行商占比0.3%">
+            <span>99.7%</span>
+            <small>0.3%</small>
+            <strong>ADT<br>No.1</strong>
+          </div>
+          <ul class="legend">
+            <li><i class="blue"></i>南方东英</li>
+            <li><i class="light"></i>其他发行商</li>
+          </ul>
+        </div>
+
+        <!-- 两个饼状图之间的竖向分隔线 -->
+        <div class="divider"></div>
+
+        <!-- 饼状图二：按资产管理规模 AUM 展示南方东英市占率 -->
+        <div class="stat-block compact">
+          <h2>按资产规模管理（AUM）</h2>
+          <div class="donut donut-aum" role="img" aria-label="按资产规模管理，南方东英占比99.1%，其他发行商占比0.9%">
+            <span>99.1%</span>
+            <small>0.9%</small>
+            <strong>AUM<br>No.1</strong>
+          </div>
+          <ul class="legend">
+            <li><i class="blue"></i>南方东英</li>
+            <li><i class="light"></i>其他发行商</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 图表资料来源说明 -->
+      <p class="stats-source">资料来源：彭博，ADT基于2026/1/1-2026/3/31数据，AUM数据截至2026/3/31.</p>
+    </section>
+
+    <!-- 公司历程时间轴：展示关键年份和里程碑，可替换为真实公司发展历史 -->
+    <section class="timeline-section">
+      <h2>公司历程</h2>
+      <div class="timeline">
+        <!-- 1998 年里程碑 -->
+        <article>
+          <strong>1998</strong>
+          <span></span>
+          <p>示例企业在香港成立</p>
+        </article>
+        <!-- 2004 年里程碑 -->
+        <article>
+          <strong>2004</strong>
+          <span></span>
+          <p>成为首批获得重要资质的资产管理公司之一</p>
+        </article>
+        <!-- 2010 年里程碑 -->
+        <article>
+          <strong>2010</strong>
+          <span></span>
+          <p>推出首只 ETF，开拓区域市场</p>
+        </article>
+        <!-- 2016 年里程碑 -->
+        <article>
+          <strong>2016</strong>
+          <span></span>
+          <p>资产管理规模突破港币 500 亿元</p>
+        </article>
+        <!-- 2020 年里程碑 -->
+        <article>
+          <strong>2020</strong>
+          <span></span>
+          <p>进一步丰富产品线，深耕亚洲市场</p>
+        </article>
+        <!-- 2024 年里程碑 -->
+        <article>
+          <strong>2024</strong>
+          <span></span>
+          <p>持续创新，致力为投资者创造长期价值</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 首页底部操作按钮：点击跳转到产品列表页 -->
+    <div class="home-action">
+      <a class="primary-button" href="pages/products.html">产品列表</a>
+    </div>
+  </main>
+</body>
+</html>
