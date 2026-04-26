@@ -6,40 +6,31 @@
   <title>产品详情</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="inner-page">
+<body class="selected-detail-page">
   <!-- 左上角返回按钮：从产品详情页返回产品列表页 -->
-  <a class="back-button" href="products.html">返回</a>
+  <a class="back-button list-back" href="products.html">返回</a>
 
-  <main class="detail-page">
-    <!-- 产品详情页头图：展示产品名称和简短定位 -->
-    <section class="detail-banner">
-      <p>Product Detail</p>
-      <h1>示例产品名称</h1>
-      <span>这里放置产品定位、投资目标、适用客户和核心价值。当前内容为占位示例。</span>
+  <header class="product-list-hero detail-top-hero">
+    <div class="product-hero-overlay"></div>
+    <div class="product-hero-brand">
+      <div class="product-brand-main">
+        <span>CSOP</span>
+        <small>Asset Management</small>
+      </div>
+      <i></i>
+      <strong>南方东英<br>资产管理</strong>
+    </div>
+  </header>
+
+  <main class="selected-products-page">
+    <section class="selected-products-title">
+      <h1>已选产品 <span>（共 <strong data-detail-count>0</strong> 个）</span></h1>
+      <p>以下为您选择的产品及亮点介绍</p>
     </section>
 
-    <!-- 产品详情正文：分为介绍、特点和应用场景 -->
-    <section class="detail-content">
-      <!-- 产品介绍：替换为真实产品策略、费用、资产等信息 -->
-      <article>
-        <h2>产品介绍</h2>
-        <p>示例产品适用于多种资产配置场景，具备透明、灵活、可持续跟踪的特点。后续可以替换为产品策略、底层资产、费用结构、申购赎回安排等真实内容。</p>
-      </article>
-      <!-- 核心特点：用列表展示产品卖点 -->
-      <article>
-        <h2>核心特点</h2>
-        <ul>
-          <li>清晰的产品定位与风险收益特征</li>
-          <li>适合长期配置或专题投资需求</li>
-          <li>支持补充产品资料、图表和关键指标</li>
-        </ul>
-      </article>
-      <!-- 应用场景：说明产品适合出现在哪些业务或客户场景 -->
-      <article>
-        <h2>应用场景</h2>
-        <p>可用于个人展示页、机构产品介绍、销售材料入口或客户咨询页面。</p>
-      </article>
-    </section>
+    <section class="selected-products-grid" data-selected-products></section>
   </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
