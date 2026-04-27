@@ -431,6 +431,15 @@ a {
   background: url("../images/首页背景.jpg.png") center 40% / cover no-repeat;
 }
 
+.product-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
 /* 产品列表页横幅底部白色弧形：模拟参考图中的波浪过渡 */
 .product-list-hero::after {
   content: "";
@@ -914,14 +923,14 @@ a {
 .detail-market-title h2 {
   margin: 0 0 6px;
   color: #111827;
-  font-size: clamp(22px, 2.1vw, 30px);
+  font-size: clamp(18px, 1.7vw, 24px);
   line-height: 1.22;
 }
 
 .detail-market-title p {
   margin: 0;
   color: var(--blue-700);
-  font-size: clamp(21px, 2vw, 28px);
+  font-size: clamp(18px, 1.6vw, 23px);
   font-weight: 800;
   line-height: 1.22;
 }
@@ -944,40 +953,68 @@ a {
 .detail-market-block h3 {
   margin: 0;
   color: var(--blue-900);
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.25;
 }
 
 .detail-market-divider {
   width: 1px;
-  height: 230px;
+  height: 190px;
   background: var(--line);
 }
 
 .detail-market-stats .donut {
-  width: 160px;
-  height: 160px;
+  width: 128px;
+  height: 128px;
+  background: none;
 }
 
 .detail-market-stats .donut::after {
-  inset: 42px;
+  display: none;
+}
+
+.detail-donut-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.detail-donut-base,
+.detail-donut-value {
+  fill: none;
+  stroke-width: 36;
+}
+
+.detail-donut-base {
+  stroke: #d9e9f7;
+}
+
+.detail-donut-value {
+  stroke: var(--blue-700);
+  stroke-linecap: butt;
+}
+
+.detail-donut-hole {
+  fill: #fff;
 }
 
 .detail-market-stats .donut span {
-  right: 34px;
-  top: 121px;
-  font-size: 18px;
+  right: 26px;
+  top: 96px;
+  font-size: 15px;
 }
 
 .detail-market-stats .donut small {
-  right: 48px;
-  top: 10px;
-  font-size: 13px;
+  right: 38px;
+  top: 8px;
+  font-size: 11px;
 }
 
 .detail-market-stats .donut strong {
-  inset: 42px;
-  font-size: 16px;
+  inset: 34px;
+  font-size: 13px;
 }
 
 .detail-market-stats .legend {
@@ -999,9 +1036,9 @@ a {
 .selected-products-title h1 {
   margin: 0 0 10px;
   color: #15223b;
-  font-size: clamp(30px, 3vw, 40px);
+  font-size: clamp(20px, 2.2vw, 26px);
   line-height: 1.15;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .selected-products-title h1 span {
@@ -1023,6 +1060,32 @@ a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px 22px;
+}
+
+.pdf-export-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+.pdf-export-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 58px;
+  border: 1px solid var(--blue-700);
+  border-radius: 6px;
+  color: #fff;
+  background: var(--blue-700);
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(0, 93, 185, 0.18);
+}
+
+.pdf-export-button:hover {
+  background: var(--blue-800);
 }
 
 .selected-product-card {
@@ -1057,7 +1120,7 @@ a {
 .selected-product-copy h2 {
   margin: 1px 0 4px;
   color: #102141;
-  font-size: clamp(21px, 1.75vw, 28px);
+  font-size: clamp(18px, 1.45vw, 23px);
   line-height: 1.24;
   font-weight: 800;
 }
@@ -1420,45 +1483,45 @@ a {
   }
 
   .detail-market-title h2 {
-    font-size: 21px;
+    font-size: 18px;
   }
 
   .detail-market-title p {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .detail-market-block h3 {
-    font-size: 19px;
+    font-size: 16px;
   }
 
   .detail-market-stats .donut {
-    width: 140px;
-    height: 140px;
+    width: 118px;
+    height: 118px;
   }
 
   .detail-market-stats .donut::after,
   .detail-market-stats .donut strong {
-    inset: 36px;
+    inset: 31px;
   }
 
   .detail-market-stats .donut span {
-    right: 28px;
-    top: 104px;
-    font-size: 16px;
-  }
-
-  .detail-market-stats .donut small {
-    right: 41px;
-    top: 8px;
-    font-size: 12px;
-  }
-
-  .detail-market-stats .donut strong {
+    right: 23px;
+    top: 88px;
     font-size: 14px;
   }
 
+  .detail-market-stats .donut small {
+    right: 35px;
+    top: 7px;
+    font-size: 10px;
+  }
+
+  .detail-market-stats .donut strong {
+    font-size: 12px;
+  }
+
   .selected-products-title h1 {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   .selected-products-title p {
@@ -1479,7 +1542,7 @@ a {
   }
 
   .selected-product-copy h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .selected-product-copy strong {
@@ -1489,6 +1552,15 @@ a {
 
   .selected-product-copy ul {
     font-size: 15px;
+  }
+
+  .pdf-export-action {
+    margin-top: 26px;
+  }
+
+  .pdf-export-button {
+    width: 100%;
+    min-height: 52px;
   }
 
   /* 手机端内页主体宽度和顶部间距 */
@@ -1507,5 +1579,46 @@ a {
   /* 手机端产品卡片内边距 */
   .product-card {
     padding: 24px;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body.selected-detail-page {
+    background: #fff;
+  }
+
+  .back-button,
+  .pdf-export-action {
+    display: none !important;
+  }
+
+  .product-list-hero {
+    min-height: 190px;
+  }
+
+  .product-list-hero::after {
+    display: none;
+  }
+
+  .selected-products-page {
+    width: 100%;
+    margin: 18px 0 0;
+    padding-bottom: 0;
+  }
+
+  .detail-market-stats,
+  .selected-product-card {
+    break-inside: avoid;
+    box-shadow: none;
   }
 }

@@ -11,6 +11,7 @@
   <a class="back-button list-back" href="products.html">返回</a>
 
   <header class="product-list-hero detail-top-hero">
+    <img class="product-hero-bg" src="../images/首页背景.jpg.png" alt="">
     <div class="product-hero-overlay"></div>
     <div class="product-hero-brand">
       <div class="product-brand-main">
@@ -34,6 +35,11 @@
         <div class="detail-market-block">
           <h3>按日均成交额（ADT）</h3>
           <div class="donut donut-adt" role="img" aria-label="按日均成交额，南方东英占比99.7%，其他发行商占比0.3%">
+            <svg class="detail-donut-svg" viewBox="0 0 128 128" aria-hidden="true">
+              <circle class="detail-donut-base" cx="64" cy="64" r="46" pathLength="100"></circle>
+              <circle class="detail-donut-value" cx="64" cy="64" r="46" pathLength="100" stroke-dasharray="99.7 100"></circle>
+              <circle class="detail-donut-hole" cx="64" cy="64" r="30"></circle>
+            </svg>
             <span>99.7%</span>
             <small>0.3%</small>
             <strong>ADT<br>No.1</strong>
@@ -49,6 +55,11 @@
         <div class="detail-market-block">
           <h3>按资产规模管理（AUM）</h3>
           <div class="donut donut-aum" role="img" aria-label="按资产规模管理，南方东英占比99.1%，其他发行商占比0.9%">
+            <svg class="detail-donut-svg" viewBox="0 0 128 128" aria-hidden="true">
+              <circle class="detail-donut-base" cx="64" cy="64" r="46" pathLength="100"></circle>
+              <circle class="detail-donut-value" cx="64" cy="64" r="46" pathLength="100" stroke-dasharray="99.1 100"></circle>
+              <circle class="detail-donut-hole" cx="64" cy="64" r="30"></circle>
+            </svg>
             <span>99.1%</span>
             <small>0.9%</small>
             <strong>AUM<br>No.1</strong>
@@ -67,6 +78,10 @@
     </section>
 
     <section class="selected-products-grid" data-selected-products></section>
+
+    <div class="pdf-export-action">
+      <button class="pdf-export-button" type="button" data-export-pdf>导出为PDF</button>
+    </div>
   </main>
 
   <script src="script.js"></script>

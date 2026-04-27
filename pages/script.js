@@ -3,6 +3,7 @@ const selectedCount = document.querySelector("[data-selected-count]");
 const productGroups = Array.from(document.querySelectorAll("[data-product-group]"));
 const selectedProductsContainer = document.querySelector("[data-selected-products]");
 const detailCount = document.querySelector("[data-detail-count]");
+const exportPdfButton = document.querySelector("[data-export-pdf]");
 const selectedProductsKey = "csop-selected-products";
 
 const productDetails = {
@@ -262,3 +263,9 @@ function renderSelectedProducts() {
 }
 
 renderSelectedProducts();
+
+if (exportPdfButton) {
+  exportPdfButton.addEventListener("click", () => {
+    window.print();
+  });
+}
