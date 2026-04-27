@@ -912,12 +912,12 @@ a {
 }
 
 .detail-market-title {
-  margin-bottom: 22px;
+  margin-bottom: 12px;
   text-align: center;
 }
 
 .detail-market-title h2 {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   color: #111827;
   font-size: 18px;
   line-height: 1.22;
@@ -934,7 +934,7 @@ a {
 .detail-market-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
-  gap: 30px;
+  gap: 8px;
   align-items: center;
 }
 
@@ -942,7 +942,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
   text-align: center;
 }
 
@@ -997,8 +997,8 @@ a {
 }
 
 .detail-market-stats .donut span {
-  right: 26px;
-  top: 96px;
+  right: 32px;
+  top: 100px;
   font-size: 15px;
 }
 
@@ -1087,9 +1087,9 @@ a {
 .selected-product-card {
   display: grid;
   grid-template-columns: 48px minmax(0, 1fr);
-  gap: 18px;
-  min-height: 180px;
-  padding: 20px;
+  gap: 14px;
+  min-height: 120px;
+  padding: 16px;
   border: 1px solid #e7edf6;
   border-radius: 8px;
   background: #fff;
@@ -1114,30 +1114,30 @@ a {
 }
 
 .selected-product-copy h2 {
-  margin: 1px 0 4px;
+  margin: 0 0 2px;
   color: #102141;
-  font-size: clamp(18px, 1.45vw, 23px);
+  font-size: 18px;
   line-height: 1.24;
   font-weight: 800;
 }
 
 .selected-product-copy strong {
   display: block;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   color: var(--blue-700);
-  font-size: clamp(20px, 1.55vw, 24px);
+  font-size: 18px;
   line-height: 1.12;
   font-weight: 800;
 }
 
 .selected-product-copy ul {
   display: grid;
-  gap: 8px;
+  gap: 4px;
   margin: 0;
-  padding-left: 22px;
+  padding-left: 20px;
   color: #4d596e;
-  font-size: clamp(16px, 1.25vw, 19px);
-  line-height: 1.48;
+  font-size: 18px;
+  line-height: 1.38;
 }
 
 .selected-product-copy li::marker {
@@ -1526,9 +1526,9 @@ a {
 
   .selected-product-card {
     grid-template-columns: 42px minmax(0, 1fr);
-    gap: 14px;
+    gap: 12px;
     min-height: 0;
-    padding: 16px;
+    padding: 14px;
   }
 
   .selected-product-index {
@@ -1542,12 +1542,13 @@ a {
   }
 
   .selected-product-copy strong {
-    margin-bottom: 12px;
-    font-size: 19px;
+    margin-bottom: 8px;
+    font-size: 18px;
   }
 
   .selected-product-copy ul {
-    font-size: 15px;
+    gap: 4px;
+    font-size: 18px;
   }
 
   .pdf-export-action {
