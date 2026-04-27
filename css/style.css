@@ -451,16 +451,9 @@ a {
   bottom: -86px;
   height: 150px;
   border-radius: 50% 50% 0 0;
-  background: #f7f9fd;
+  background: #f7fbff;
 }
 
-/* 产品列表页横幅遮罩：保证左侧品牌信息清晰 */
-.product-hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(90deg, rgba(0, 28, 96, 0.58), rgba(0, 73, 163, 0.25), rgba(0, 86, 178, 0.05));
-}
 
 /* 产品列表页横幅品牌：缩小版品牌组合 */
 .product-hero-brand {
@@ -534,7 +527,7 @@ a {
 .product-selector-title h1 {
   margin: 0 0 12px;
   color: #15223b;
-  font-size: clamp(36px, 4vw, 52px);
+  font-size: 28px;
   line-height: 1.05;
   font-weight: 800;
 }
@@ -547,7 +540,7 @@ a {
 
 /* 产品分组：每个分组包含标题、全选和产品行 */
 .product-group {
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 /* 产品分组标题栏：左侧分组名，右侧全选 */
@@ -565,7 +558,7 @@ a {
   position: relative;
   margin: 0;
   color: var(--blue-700);
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 800;
 }
 
@@ -926,14 +919,14 @@ a {
 .detail-market-title h2 {
   margin: 0 0 6px;
   color: #111827;
-  font-size: clamp(18px, 1.7vw, 24px);
+  font-size: 18px;
   line-height: 1.22;
 }
 
 .detail-market-title p {
   margin: 0;
   color: var(--blue-700);
-  font-size: clamp(18px, 1.6vw, 23px);
+  font-size: 18px;
   font-weight: 800;
   line-height: 1.22;
 }
@@ -1428,7 +1421,7 @@ a {
   }
 
   .product-selector-title h1 {
-    font-size: 36px;
+    font-size: 22px;
   }
 
   .product-selector-title p {
@@ -1490,7 +1483,7 @@ a {
   }
 
   .detail-market-title p {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .detail-market-block h3 {
@@ -1588,7 +1581,7 @@ a {
 @media print {
   @page {
     size: A4;
-    margin: 12mm;
+    margin: 10;
   }
 
   * {
@@ -1596,7 +1589,10 @@ a {
     print-color-adjust: exact;
   }
 
+  html,
   body.selected-detail-page {
+    margin: 0;
+    padding: 0;
     background: #fff;
   }
 
@@ -1640,9 +1636,23 @@ a {
     padding-bottom: 0;
   }
 
-  .detail-market-stats,
+  .detail-market-stats {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .selected-products-grid {
+    display: block;
+  }
+
   .selected-product-card {
     break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    display: grid;
+    width: 100%;
+    margin: 0 0 10px;
     box-shadow: none;
   }
 

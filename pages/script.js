@@ -75,7 +75,7 @@ const productDetails = {
     name: "南方东英港元货币市场ETF",
     bullets: ["七日年化收益约2.2263%"],
   },
-  "9096.HK": {
+  "3096.HK": {
     name: "南方东英美元货币市场ETF",
     bullets: ["七日年化收益约3.6650%"],
   },
