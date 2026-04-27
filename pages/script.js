@@ -265,7 +265,18 @@ function renderSelectedProducts() {
 renderSelectedProducts();
 
 if (exportPdfButton) {
-  exportPdfButton.addEventListener("click", () => {
+  exportPdfButton.addEventListener("click", async () => {
+    const images = Array.from(document.images);
+    await Promise.all(images.map((image) => {
+      if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+      if (image.decode) return image.decode().catch(() => {});
+
+      return new Promise((resolve) => {
+        image.addEventListener("load", resolve, { once: true });
+        image.addEventListener("error", resolve, { once: true });
+      });
+    }));
+
     window.print();
   });
 }

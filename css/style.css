@@ -425,6 +425,7 @@ a {
 /* 产品列表页顶部横幅：复用首页背景图，但高度更矮、裁切更偏顶部 */
 .product-list-hero {
   position: relative;
+  isolation: isolate;
   min-height: 230px;
   overflow: hidden;
   color: var(--white);
@@ -434,6 +435,7 @@ a {
 .product-hero-bg {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -456,6 +458,7 @@ a {
 .product-hero-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(90deg, rgba(0, 28, 96, 0.58), rgba(0, 73, 163, 0.25), rgba(0, 86, 178, 0.05));
 }
 
@@ -1602,12 +1605,33 @@ a {
     display: none !important;
   }
 
-  .product-list-hero {
+  body.selected-detail-page .product-list-hero {
     min-height: 190px;
+    background: none !important;
   }
 
-  .product-list-hero::after {
+  body.selected-detail-page .product-list-hero::after {
     display: none;
+  }
+
+  body.selected-detail-page .product-hero-bg {
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  body.selected-detail-page .product-hero-overlay {
+    z-index: 1;
+  }
+
+  body.selected-detail-page .product-hero-brand,
+  body.selected-detail-page .product-hero-tagline {
+    z-index: 2;
   }
 
   .selected-products-page {
@@ -1620,5 +1644,25 @@ a {
   .selected-product-card {
     break-inside: avoid;
     box-shadow: none;
+  }
+
+  .selected-product-copy {
+    display: contents;
+  }
+
+  .selected-product-index {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .selected-product-copy h2,
+  .selected-product-copy strong {
+    grid-column: 2;
+  }
+
+  .selected-product-copy ul {
+    grid-column: 1 / -1;
+    padding-left: 0;
+    list-style-position: inside;
   }
 }
