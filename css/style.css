@@ -274,24 +274,24 @@ a {
   text-align: center;
 }
 
-/* 公司历程区域：白底时间轴部分 */
+/* 公司优势区域：白底时间轴部分 */
 .timeline-section {
   padding: 10px 3vw 28px;
   background: var(--white);
 }
 
-/* 公司历程标题 */
+/* 公司优势标题 */
 .timeline-section h2 {
   margin: 0 0 18px;
   color: var(--blue-900);
   font-size: 32px;
 }
 
-/* 时间轴布局：桌面端 6 个年份横向排列 */
+/* 时间轴布局：桌面端 4 个优势横向排列 */
 .timeline {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
   padding-top: 26px;
 }
@@ -325,7 +325,7 @@ a {
   text-align: center;
 }
 
-/* 时间节点年份文字 */
+/* 时间节点标题文字 */
 .timeline strong {
   display: block;
   color: var(--blue-900);
@@ -351,6 +351,14 @@ a {
   color: #4c5868;
   font-size: 19px;
   line-height: 1.55;
+}
+
+/* 时间节点说明中的重点内容 */
+.timeline p strong {
+  display: inline;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 /* 备用脚注样式：当前首页未使用，保留给后续说明文字 */
@@ -1009,9 +1017,9 @@ a {
     height: 1px;
   }
 
-  /* 时间轴平板端变成三列 */
+  /* 时间轴平板端变成两列 */
   .timeline {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* 平板端隐藏时间轴横线和箭头，避免跨行错位 */
